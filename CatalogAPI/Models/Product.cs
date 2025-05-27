@@ -15,7 +15,7 @@ public class Product
     [StringLength(300)]
     public string? Description { get; set; }
     [Required]
-    [Column(TypeName ="deciman(10,2)")]
+    [Column(TypeName ="decimal(10,2)")]
     public decimal Price { get; set; }
     [Required]
     [StringLength(300)]

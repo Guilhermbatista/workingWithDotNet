@@ -106,3 +106,4 @@ D:\dotnetProjects\CatalogAPI\CatalogAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalys
 D:\dotnetProjects\CatalogAPI\CatalogAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\dotnetProjects\CatalogAPI\CatalogAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\dotnetProjects\CatalogAPI\CatalogAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\dotnetProjects\CatalogAPI\CatalogAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

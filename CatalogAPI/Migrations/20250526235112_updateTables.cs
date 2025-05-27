@@ -13,7 +13,7 @@ namespace CatalogAPI.Migrations
             migrationBuilder.AlterColumn<decimal>(
                 name: "Price",
                 table: "Products",
-                type: "deciman(10,2)",
+                type: "decimal(10,2)",
                 nullable: false,
                 oldClrType: typeof(decimal),
                 oldType: "decimal(65,30)");
