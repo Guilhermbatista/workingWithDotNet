@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using CatalogAPI.Context;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,6 +11,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//ignorar uma referencia ciclica do product
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+});
 
 string mySqlConnection = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<AppDbContext>(options=>
