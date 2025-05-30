@@ -15,23 +15,23 @@ namespace CatalogAPI.Controllers
 
         public CategoryController(AppDbContext context) => _context = context;
 
-
+        //Todas as vezes que acessa um banco de dados, uma operação compleza, algo que demanda mais tempo pode se usar Async
         [HttpGet]
-        public ActionResult<IEnumerable<Category>> FindAll()
+        public async Task<ActionResult<IEnumerable<Category>>> FindAll()
         {
-            var category = _context.Categories.AsNoTracking().ToList();
+            var  category = _context.Categories.AsNoTracking().ToList();
 
             if(category is null)
             {
                 return NotFound("Categories does not found");
             }
-            return _context.Categories.ToList();
+            return await _context.Categories.ToListAsync();
         }
 
-        [HttpGet("{id:int}", Name = "ObterCategoria")]
-        public ActionResult<Category> GetProductId(int id)
+        [HttpGet("{id:int:min(1)}", Name = "ObterCategoria")]
+        public async Task<ActionResult<Category>> GetProductId(int id)
         {
-            var category = _context.Categories.AsNoTracking().FirstOrDefault(p => p.CategoryId == id);
+            var category = await _context.Categories.AsNoTracking().FirstOrDefaultAsync(p => p.CategoryId == id);
 
             if (category is null)
             {
