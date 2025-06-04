@@ -13,6 +13,15 @@ namespace CatalogAPI.Logging
             this.configuration = configuration;
         }
 
+        public CustomLogger(ConcurrentDictionary<string, CustomLogger> logger, CustomLoggerProviderConfiguration loggerConfig)
+        {
+            Logger = logger;
+            LoggerConfig = loggerConfig;
+        }
+
+        public ConcurrentDictionary<string, CustomLogger> Logger { get; }
+        public CustomLoggerProviderConfiguration LoggerConfig { get; }
+
         public IDisposable? BeginScope<TState>(TState state) where TState : notnull
         {
             return null;
