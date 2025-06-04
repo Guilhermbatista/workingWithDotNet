@@ -1,5 +1,7 @@
 using System.Text.Json.Serialization;
 using CatalogAPI.Context;
+using CatalogAPI.Extensions;
+using CatalogAPI.Filters;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,6 +24,8 @@ builder.Services.AddDbContext<AppDbContext>(options=>
                 options.UseMySql(mySqlConnection, 
                  ServerVersion.AutoDetect(mySqlConnection)));
 
+builder.Services.AddScoped<ApiLoggingFilters>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -29,6 +33,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.ConfigureExceptinoHandler();
 }
 
 app.UseHttpsRedirection();
